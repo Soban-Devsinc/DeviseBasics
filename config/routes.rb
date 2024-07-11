@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'pages/index'
-  root to: "home#index"
+  resources :pages
+  resources :users
+
+
+  get 'authenticated', to: 'pages#authenticated', as: 'authenticated'
+
+  authenticated do
+    root 'pages#index', as: 'home'
+  end
+  unauthenticated do
+    root 'users#index'
+  end
 end

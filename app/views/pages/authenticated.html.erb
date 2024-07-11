@@ -1,0 +1,6 @@
+<h1>User is Authenticated</h1>
+<p>Email: <%= current_user.email %> <p>
+<p>Cnic: <%= current_user.cnic %> <p>
+<p>Age: <%= current_user.age %> <p>
+
+<%= link_to "Sign Out", destroy_user_session_path, data: { "turbo-method": :delete } %>
